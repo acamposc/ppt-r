@@ -1,0 +1,9 @@
+# con.yaml
+# user must replace variable values
+# the view's value must be Google Analytics View ID
+# view_id: $view_id
+
+# important: file must end in empty newline
+
+# view_id: 1111111
+view_id: 141481015

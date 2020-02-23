@@ -1,0 +1,17 @@
+# app.yaml
+# user must replace key value pair information
+# with what the desired output should be
+
+# important: file must end in empty newline
+
+- field: ID
+  description: primary identifier
+  type: integer
+  primary key: yes
+- field: DOB
+  description: date of birth
+  type: date
+  format: yyyy-mm-dd
+- field: State
+  description: state of residence
+  type: string

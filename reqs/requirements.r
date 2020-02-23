@@ -3,6 +3,7 @@
 # They will not be shared globally
 
 # https://mran.revolutionanalytics.com/web/packages/checkpoint/checkpoint.pdf
+# https://github.com/viking/r-yaml/
 
 
 
@@ -13,7 +14,14 @@ library("checkpoint")
 print(getwd())
 checkpoint("2020-02-21", checkpointLocation=getwd())
 
+# Data loading
+if (!require("yaml")) install.packages("yaml", dependencies = TRUE, repos="https://mran.microsoft.com/snapshot/2020-02-21")
 if (!require("ganalytics")) install.packages("ganalytics", dependencies = TRUE, repos="https://mran.microsoft.com/snapshot/2020-02-21")
+
+# Data transforming
+if (!require("officer")) install.packages("officer", dependencies = TRUE, repos="https://mran.microsoft.com/snapshot/2020-02-21")
+if (!require("magrittr")) install.packages("ganalytics", dependencies = TRUE, repos="https://mran.microsoft.com/snapshot/2020-02-21")
+
 
 ##########################
 # Use only when neccesary

@@ -1,6 +1,8 @@
 ## Goals:
 - free analysts from data loading, munging and eases up data analysis through simple hints whenever possible 
+- encourage creativity and empowers people to repeat report building as many times as necessary to get the desired outcome
 - standardize reports and analysis 
+
 
 ## Extra:
 - serves as a style guide for newcomers
