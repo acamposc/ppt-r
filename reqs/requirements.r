@@ -29,11 +29,14 @@ if (!require("ganalytics")) install.packages("ganalytics", dependencies = TRUE, 
 # https://tidyverse.tidyverse.org/
 # ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats, hms, lubridate, httr, jsonlite, readxl, rvest, xml2, modelr, broom
 if (!require("tidyverse")) install.packages("tidyverse", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("R6")) install.packages("R6", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 
 
 # Data output
 if (!require("officer")) install.packages("officer", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 if (!require("magrittr")) install.packages("magrittr", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("mschart")) install.packages("mschart", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("rvg")) install.packages("rvg", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 
 
 ##########################

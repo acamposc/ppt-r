@@ -12,11 +12,11 @@ myQuery <- GaQuery(view_id, creds = my_creds )
 pptr_sessions <- GetGaData(myQuery)
 print(str(pptr_sessions))
 
-chart <- pptr_sessions$sessions
-png(file = "~/ppt-r/plots/barplot_sessions.png")
-bar_chart <- barplot(chart)
-dev.off()
-
+library(ggplot2)
+#https://ggplot2.tidyverse.org/reference/geom_bar.html
+png(file = "~/ppt-r/plots/geomcol_sessions.png")
+g <- ggplot(pptr_sessions, aes(date, sessions))
+g + geom_col()
 
 
 #DateRange(myQuery) <- c("2020-01-01", "2020-02-22")
@@ -33,3 +33,5 @@ dev.off()
 
 
 
+source("fn/charts.r")
+bar <- Chart$new(pptr_sessions)
