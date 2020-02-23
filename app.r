@@ -34,4 +34,5 @@ g + geom_col()
 
 
 source("fn/charts.r")
-bar <- Chart$new(pptr_sessions)
+bar <- ChartSessionsLastWeek$new()
+bar$chart(pptr_sessions)
