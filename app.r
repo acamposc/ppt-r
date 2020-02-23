@@ -9,4 +9,27 @@ my_creds <- GoogleApiCreds(readline(prompt="Enter email: "), Sys.getenv("PPT_R_G
 
 # test authentication
 myQuery <- GaQuery(view_id, creds = my_creds )
-GetGaData(myQuery)
+pptr_sessions <- GetGaData(myQuery)
+print(str(pptr_sessions))
+
+chart <- pptr_sessions$sessions
+png(file = "~/ppt-r/plots/barplot_sessions.png")
+bar_chart <- barplot(chart)
+dev.off()
+
+
+
+#DateRange(myQuery) <- c("2020-01-01", "2020-02-22")
+#data <- GetGaData(myQuery)
+#summary(data)
+
+#Metrics(myQuery) <- c("ga:pageviews", "ga:sessions")
+#data <- GetGaData(myQuery)
+#summary(data)
+
+#library(ggplot2)
+#p <- ggplot(pptr_sessions$sessions, aes(pptr_sessions$date))
+#p+geom_bar()
+
+
+
