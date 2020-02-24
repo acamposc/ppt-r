@@ -14,7 +14,7 @@
 - user defines slides order
 - user defines charts calling friendly functions
 - lowest possible number of service accounts for data extraction 
-- version control allows reproducibility
+- version control allows portability
 - analysts and developers are encouraged to extend the functionality
 - user's defined variables are written in yaml
 

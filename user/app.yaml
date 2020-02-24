@@ -8,7 +8,8 @@
   title: organic daily sessions by device
   dimensions: ga:date, ga:deviceCategory
   metrics: ga:sessions
-  filter: ga:medium==organic
+  filter-key: medium
+  filter-value: organic
   date-begin: 2020-02-01
   date-end: 2020-02-22
   graph: ms_areachart
@@ -19,7 +20,8 @@
   title: paid daily sessions by device
   dimensions: ga:date, ga:deviceCategory
   metrics: ga:sessions
-  filter: ga:medium==cpc
+  filter-key: medium
+  filter-value: cpc
   date-begin: 2020-02-01
   date-end: 2020-02-22
   graph: ms_linechart
@@ -30,7 +32,8 @@
   title: total goal completions by medium
   dimensions: ga:medium
   metrics: ga:goalCompletionsAll
-  filter: ga:sessions>1
+  filter-key: ga:sessionCount
+  filter-value: ^[0-1]$
   date-begin: 2020-02-01
   date-end: 2020-02-22
   graph: ms_barchart

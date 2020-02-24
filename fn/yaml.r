@@ -15,5 +15,3 @@ Appyaml <- R6Class("Appyaml",
                      appyaml = function(){
                        private$..outline
                      }))
-
-
