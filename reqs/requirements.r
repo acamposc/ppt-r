@@ -30,6 +30,8 @@ if (!require("ganalytics")) install.packages("ganalytics", dependencies = TRUE, 
 # ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats, hms, lubridate, httr, jsonlite, readxl, rvest, xml2, modelr, broom
 if (!require("tidyverse")) install.packages("tidyverse", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 if (!require("R6")) install.packages("R6", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("stringr")) install.packages("stringr", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("purrr")) install.packages("purrr", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 
 
 # Data output

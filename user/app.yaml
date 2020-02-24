@@ -4,14 +4,35 @@
 
 # important: file must end in empty newline
 
-- field: ID
-  description: primary identifier
-  type: integer
-  primary key: yes
-- field: DOB
-  description: date of birth
-  type: date
-  format: yyyy-mm-dd
-- field: State
-  description: state of residence
-  type: string
+- slide: new
+  title: organic daily sessions by device
+  dimensions: ga:date, ga:deviceCategory
+  metrics: ga:sessions
+  filter: ga:medium==organic
+  date-begin: 2020-02-01
+  date-end: 2020-02-22
+  graph: ms_areachart
+  layout: Title and Content
+  data-source: google analytics
+
+- slide: new
+  title: paid daily sessions by device
+  dimensions: ga:date, ga:deviceCategory
+  metrics: ga:sessions
+  filter: ga:medium==cpc
+  date-begin: 2020-02-01
+  date-end: 2020-02-22
+  graph: ms_linechart
+  layout: Blank
+  data-source: google analytics
+
+- slide: new
+  title: total goal completions by medium
+  dimensions: ga:medium
+  metrics: ga:goalCompletionsAll
+  filter: ga:sessions>1
+  date-begin: 2020-02-01
+  date-end: 2020-02-22
+  graph: ms_barchart
+  layout: Two Content
+  data-source: google analytics

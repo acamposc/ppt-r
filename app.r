@@ -1,38 +1,57 @@
-# Sys.getenv("PPT_R_GOOGLE_SERVICE_ACCOUNT_PATH")
-# https://github.com/jdeboer/ganalytics
+# app.r
+# order of code execution is controlled here
 
 source("reqs/requirements.r")
-source("fn/connections.r")
-library(ganalytics)
-my_creds <- GoogleApiCreds(readline(prompt="Enter email: "), Sys.getenv("PPT_R_GOOGLE_OAUTH20_ACCOUNT_PATH"))
+source("fn/viewid.r")
+source("fn/yaml.r")
+source("fn/fields.r")
+#source("fn/ganalytics.r")
 
+# requirements needs no initialization
+# initialize viewid.r
+    vw = Viewidyaml$new()
+    view_id <- unlist(vw$viewid)
 
-# test authentication
-myQuery <- GaQuery(view_id, creds = my_creds )
-pptr_sessions <- GetGaData(myQuery)
-print(str(pptr_sessions))
+# initialize yaml.r
+    outline = Appyaml$new()
 
-library(ggplot2)
-#https://ggplot2.tidyverse.org/reference/geom_bar.html
-png(file = "~/ppt-r/plots/geomcol_sessions.png")
-g <- ggplot(pptr_sessions, aes(date, sessions))
-g + geom_col()
+# initialize fields.r
+# title
+    yaml_title <- Yamlparser$new()
+    yaml_title$field <- 'title'
+    str(yaml_title$field)
+# dimensions
+    yaml_dimension <- Yamlparser$new()
+    str(yaml_dimension$field)
+# metrics
+    yaml_metrics <- Yamlparser$new()
+    yaml_metrics$field <- 'metrics'
+    str(yaml_metrics$field)
+# filter
+    yaml_filter <- Yamlparser$new()
+    yaml_filter$field <- 'filter'
+    str(yaml_filter$field)
+# date-begin
+    yaml_datebegin <- Yamlparser$new()
+    yaml_datebegin$field <- 'date-begin'
+    str(yaml_datebegin$field)
+# date-end
+    yaml_dateend <- Yamlparser$new()
+    yaml_dateend$field <- 'date-end'
+    str(yaml_dateend$field)
+# graph
+    yaml_graph <- Yamlparser$new()
+    yaml_graph$field <- 'graph'
+    str(yaml_graph$field)
+# layout
+    yaml_layout <- Yamlparser$new()
+    yaml_layout$field <- 'layout'
+    str(yaml_layout$field)
+# data-source
+    yaml_datasource <- Yamlparser$new()
+    yaml_datasource$field <- 'data-source'
+    str(yaml_datasource$field)
 
-
-#DateRange(myQuery) <- c("2020-01-01", "2020-02-22")
-#data <- GetGaData(myQuery)
-#summary(data)
-
-#Metrics(myQuery) <- c("ga:pageviews", "ga:sessions")
-#data <- GetGaData(myQuery)
-#summary(data)
-
-#library(ggplot2)
-#p <- ggplot(pptr_sessions$sessions, aes(pptr_sessions$date))
-#p+geom_bar()
-
-
-
-source("fn/charts.r")
-bar <- ChartSessionsLastWeek$new()
-bar$chart(pptr_sessions)
+#source("fn/charts.r")
+#bar <- ChartSessionsLastWeek$new()
+#bar$chart(pptr_sessions)
