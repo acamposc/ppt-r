@@ -14,6 +14,9 @@ ppt_r_repo_mran_snapshot <- c("https://mran.microsoft.com/snapshot/")
 # and replace where necessary.
 # ppt_r_repo_cran_snapshot <- c("CRAN")
 
+#.libPaths(c( "~/ppt-r/.checkpoint/2020-02-21/lib/x86_64-apple-darwin15.6.0/3.6.2/"))
+if (!require("googleAnalyticsR")) install.packages("googleAnalyticsR", repo = c("https://mran.microsoft.com/snapshot/2020-02-21"))
+
 if (!require("devtools")) install.packages("devtools", repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 if (!require("checkpoint")) install.packages("checkpoint", repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 
@@ -23,7 +26,8 @@ checkpoint(ppt_r_checkpoint_date, checkpointLocation=getwd())
 
 # Data loading
 if (!require("yaml")) install.packages("yaml", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
-if (!require("ganalytics")) install.packages("ganalytics", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+#if (!require("ganalytics")) install.packages("ganalytics", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("googleAuthR")) install.packages("googleAuthR", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 
 # Data munging
 # https://tidyverse.tidyverse.org/

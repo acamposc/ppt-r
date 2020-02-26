@@ -18,3 +18,5 @@ output/*
 
 plots/*
 !plots/.gitkeep
+
+.httr-oauth
