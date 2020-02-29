@@ -11,8 +11,8 @@
   filtersExpression: ga:medium=@organic
   date-begin: 2020-02-01
   date-end: 2020-02-22
-  graph: ms_areachart
-  layout: Title and Content
+  graph: ms_linechart
+  layout: Dos objetos
   data-source: google analytics
 
 - slide: new
@@ -23,16 +23,16 @@
   date-begin: 2020-02-01
   date-end: 2020-02-22
   graph: ms_linechart
-  layout: Blank
+  layout: Dos objetos
   data-source: google analytics
 
 - slide: new
   title: total goal completions by device category
-  dimensions: ga:deviceCategory
+  dimensions: ga:medium, ga:deviceCategory
   metrics: ga:goalCompletionsAll
   filtersExpression: ""
   date-begin: 2020-02-01
   date-end: 2020-02-22
   graph: ms_barchart
-  layout: Two Content
+  layout: Dos objetos
   data-source: google analytics

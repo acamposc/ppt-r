@@ -1,78 +1,35 @@
-# https://adv-r.hadley.nz/r6.html
-library(R6)
+# mscharts
+library(mschart)
 
+fn_charts <- function(x){
 
-# guide
-# using data at private level
-Test <- R6Class("Test",
-          private = list(
-            ..data = mtcars
-          ),
-          public = list(
-          fn = function(){
-            print(private$..data$cyl)
-            invisible(self)
-          })
+    if (yaml_graph$field[[x]] == "ms_barchart"){
+      print("a barchart")
+      bar_chart <- ms_barchart(
+        data = tbls[[x]],
+        x = "medium",
+        y = "goalCompletionsAll",
+        group = "deviceCategory"
         )
 
+    } else if (yaml_graph$field[[x]] == "ms_linechart"){
+      print("a linechart") 
+      line_chart <- ms_linechart(
+        data = tbls[[x]],
+        x = "date",
+        y = "sessions",
+        group = "deviceCategory"
+      )
+      line_chart <- chart_ax_x(
+        line_chart, num_fmt = "d/m/yy"
+      )
 
-# a <- Test$new()
-# a$fn()
-# end of guide
-
-# guide # 2
-# passing arguments
-Test <- R6Class("Test",
-          private = list(
-            ..data = mtcars$vs
-          ),
-          public = list(
-          fn = function(data){
-            png(file = "~/ppt-r/plots/r6_plot_mtcars.png")
-            plot(data)
-            dev.off()
-            invisible(self)
-          })
-        )
-
-
-# a <- Test$new()
-# a$fn(mtcars$hp)
-
-# end of second guide
-
-
-# example 3
-Test <- R6Class("Test",
-          private = list(
-            ..data = mtcars
-          ),
-          public = list(
-          fn = function(){
-            require(ggplot2)
-            png(file = "~/ppt-r/plots/r6_scatterplot_mtcars.png")
-            g <- ggplot(private$..data, aes(private$..data$cyl, private$..data$mpg))
-            print(g + geom_col())
-            dev.off()
-            invisible(self)
-          })
-        )
-
-
-# a <- Test$new()
-# a$fn()
-
-# end of 3rd example
-
-# working piece.
-ChartSessionsLastWeek <- R6Class("ChartSessionsLastWeek",
-    public = list(
-        chart = function(x){
-            require(ggplot2)
-            png(file = paste0("~/ppt-r/plots/r6_geomcol_sessions_", Sys.Date(), ".png"))
-            g <- ggplot(x, aes(date, sessions))
-            print(g + geom_col())
-            dev.off()
-            invisible(self)
-        }
-    ))
+    } else if (yaml_graph$field[[x]] == "ms_scatterchart"){
+      print("a scatterchart")
+    } else if (yaml_graph$field[[x]] == "ms_areachart"){
+      print("an areachart")
+    } else {
+      print("not a ms_chart")
+    }
+}
+charts <- map(.x = 1:length(outline$appyaml), .f = fn_charts)

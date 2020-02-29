@@ -36,6 +36,8 @@ if (!require("tidyverse")) install.packages("tidyverse", dependencies = TRUE, re
 if (!require("R6")) install.packages("R6", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 if (!require("stringr")) install.packages("stringr", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
 if (!require("purrr")) install.packages("purrr", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+if (!require("tibble")) install.packages("tibble", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))
+
 
 # Data output
 if (!require("officer")) install.packages("officer", dependencies = TRUE, repos=paste0(ppt_r_repo_mran_snapshot, ppt_r_checkpoint_date))

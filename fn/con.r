@@ -6,14 +6,14 @@
 require(yaml)
 require(R6)
 
-viewidyaml_location <- c("~/ppt-r/user/con.yaml")
+conyaml_location <- c("~/ppt-r/user/con.yaml")
 
-Viewidyaml <- R6Class("Viewidyaml",
+Con <- R6Class("Con",
                       private = list(
-                        ..viewid = read_yaml(file = viewidyaml_location, fileEncoding = "UTF-8")
+                        ..con = read_yaml(file = conyaml_location, fileEncoding = "UTF-8")
                       ),
                       active = list(
-                        viewid = function(){
-                          private$..viewid
+                        con = function(){
+                          private$..con
                         }))
 

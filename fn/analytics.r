@@ -3,7 +3,7 @@
 # http://code.markedmondson.me/googleAnalyticsR/articles/v4.html#filters
 # http://code.markedmondson.me/googleAnalyticsR/articles/v4.html
 
-
+library(tibble)
 # service account authentication
 # run once
 library(googleAuthR)
@@ -28,7 +28,7 @@ Analytics <- R6Class(
 
             fn_ga <- function(x){
 
-                google_analytics(view_id, 
+                tbl <- google_analytics(view_id, 
                     date_range = c(
                         yaml_datebegin$field[[x]], 
                         yaml_dateend$field[[x]]
@@ -41,6 +41,8 @@ Analytics <- R6Class(
                     ),
                     filtersExpression = yaml_filter_expr$field[[x]]
             )
+
+            tbl <- as_tibble(tbl)
 
             }
 

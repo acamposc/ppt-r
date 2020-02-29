@@ -2,29 +2,25 @@
 # object Slides creates slides 
 # slides attributes comes from app.yaml fields
 # main attributes: layout, title, graph
-# if no file path is provided a new file will be created at the project's directory.
+# file path must be written in con.yaml
+# https://davidgohel.github.io/officer/articles/offcran/powerpoint.html
 
-library(R6)
 library(officer)
-PPT <- R6Class(
-    "PPT", 
-    private = list(
-        ..file_new = NULL         
-        ..slide_new = NULL
-    ), 
-    active = list(
-        file_new = function(value){
-            if(missing(value)){
-                private$..file_new
-            } else {
-                private$..file_new <- value
-            }},
-        slide_new = function(value){
-            if(missing(value)){
-                private$..slide_new
-            } else {
-                private$..slide_new <- value
-            }})
-)
+library(magrittr)
+library(mschart)
 
-# unfinished
+ppt <- officer::read_pptx(path = pptx_file)
+lyt <- officer::layout_summary(ppt)
+lyt <- tibble::as_tibble(lyt)
+
+fn_ppt <- function(x){
+
+    ppt <- ppt %>% 
+        officer::add_slide(., layout = yaml_layout$field[[x]], master = "Tema de Office") %>%
+        officer::ph_with(., value = x, location = ph_location_type(type = "title")) %>%
+        officer::ph_with(., value = charts[[x]], location = ph_location_type(type = "body"))
+}
+
+ppt <- map(.x = 1:length(outline$appyaml), .f = fn_ppt)
+
+print(x = ppt, target = "~/ppt-r/output/sample.pptx")
