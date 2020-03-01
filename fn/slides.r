@@ -17,7 +17,7 @@ fn_ppt <- function(x){
 
     ppt <- ppt %>% 
         officer::add_slide(., layout = yaml_layout$field[[x]], master = "Tema de Office") %>%
-        officer::ph_with(., value = x, location = ph_location_type(type = "title")) %>%
+        officer::ph_with(., value = yaml_title$field[[x]], location = ph_location_type(type = "title")) %>%
         officer::ph_with(., value = charts[[x]], location = ph_location_type(type = "body"))
 }
 

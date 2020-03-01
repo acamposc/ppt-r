@@ -36,3 +36,14 @@
   graph: ms_barchart
   layout: Dos objetos
   data-source: google analytics
+
+- slide: new
+  title: cpc and ad cost relationship by device category
+  dimensions: ga:deviceCategory
+  metrics: ga:cpc, ga:adCost
+  filtersExpression: ""
+  date-begin: 2020-02-01
+  date-end: 2020-02-22
+  graph: ms_scatterchart
+  layout: Dos objetos
+  data-source: google analytics
