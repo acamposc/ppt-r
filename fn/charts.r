@@ -3,6 +3,9 @@
 # themes ref: https://ardata-fr.github.io/mschart/reference/set_theme.html
 # set chart reF: https://ardata-fr.github.io/mschart/reference/chart_settings.html
 # details ref: https://ardata-fr.github.io/mschart/articles/details.html
+# fp_text ref: https://www.rdocumentation.org/packages/officer/versions/0.3.6/topics/fp_text
+# fp_border ref: https://www.rdocumentation.org/packages/officer/versions/0.3.6/topics/fp_border
+
 
 # theme must be customized on every new account.
 fn_theme <- function(){
@@ -72,8 +75,19 @@ fn_charts <- function(x){
         data = tbls[[x]],
         x = stringr::str_sub(yaml_dimension$field[[x]], 4)[1],
         y = stringr::str_sub(yaml_metrics$field[[x]], 4)[1],
-        group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        #group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        if(
+          is.na(stringr::str_sub(yaml_dimension$field[[x]], 4)[2])
+        ) {
+          group = NULL
+        } else {
+          group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        }
         )
+      bar_chart <- chart_settings(
+        x = bar_chart, 
+        grouping = "clustered"
+      )
       bar_chart <- set_theme(
         x = bar_chart,
         value = fn_theme()
@@ -85,7 +99,14 @@ fn_charts <- function(x){
         data = tbls[[x]],
         x = stringr::str_sub(yaml_dimension$field[[x]], 4)[1],
         y = stringr::str_sub(yaml_metrics$field[[x]], 4[1]),
-        group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        #group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        if(
+          is.na(stringr::str_sub(yaml_dimension$field[[x]], 4)[2])
+        ) {
+          group = NULL
+        } else {
+          group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        }
       )
       line_chart <- chart_ax_x(
         line_chart, num_fmt = "yyyy-mm-dd"
@@ -101,7 +122,14 @@ fn_charts <- function(x){
         data = tbls[[x]],
         x = stringr::str_sub(yaml_metrics$field[[x]], 4)[1],
         y = stringr::str_sub(yaml_metrics$field[[x]], 4)[2],
-        group = stringr::str_sub(yaml_dimension$field[[x]], 4)[1]
+        #group = stringr::str_sub(yaml_dimension$field[[x]], 4)[1]
+        if(
+          is.na(stringr::str_sub(yaml_dimension$field[[x]], 4)[2])
+        ) {
+          group = NULL
+        } else {
+          group = stringr::str_sub(yaml_dimension$field[[x]], 4)[2]
+        }
       )
       scatter_chart  <- set_theme(
         x = scatter_chart,

@@ -17,14 +17,18 @@
     yaml_filter_expr = Yamlparser$new()
     yaml_filter_expr$field <- 'filtersExpression'
     #str(yaml_filter_key$field)
-# date-begin
-    yaml_datebegin = Yamlparser$new()
-    yaml_datebegin$field <- 'date-begin'
-    #str(yaml_datebegin$field)
-# date-end
-    yaml_dateend = Yamlparser$new()
-    yaml_dateend$field <- 'date-end'
-    #str(yaml_dateend$field)
+# date-range
+    yaml_daterange = Yamlparser$new()
+    yaml_daterange$field <- 'date-range'
+    #str(yaml_daterange$field)
+# sort
+    yaml_sort = Yamlparser$new()
+    yaml_sort$field <- 'sort'
+    #str(yaml_sort$field)
+# absolute-change
+    yaml_absolutechange = Yamlparser$new()
+    yaml_absolutechange$field <- 'absolute-change'
+    #str(yaml_absolutechange$field)
 # graph
     yaml_graph = Yamlparser$new()
     yaml_graph$field <- 'graph'

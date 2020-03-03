@@ -1,9 +1,9 @@
 # app.r
 # order of code execution is controlled here
 
-source("reqs/requirements.r")
-source("fn/con.r")
-source("fn/yaml.r")
+source("~/ppt-r/reqs/requirements.r")
+source("~/ppt-r/fn/con.r")
+source("~/ppt-r/fn/yaml.r")
 
 # requirements needs no initialization
 # initialize viewid.r
@@ -15,14 +15,14 @@ source("fn/yaml.r")
 # initialize yaml.r
     outline = Appyaml$new()
 
-source("fn/fields.r")
-source("fn/values.r")
-source("fn/analytics.r")
+source("~/ppt-r/fn/fields.r")
+source("~/ppt-r/fn/values.r")
+source("~/ppt-r/fn/analytics.r")
 
 # initialize analytics.r
     analytics = Analytics$new()
     tbls <- analytics$query()
     print(tbls)
     
-source("fn/charts.r")
-source("fn/slides.r")
+source("~/ppt-r/fn/charts.r")
+source("~/ppt-r/fn/slides.r")
