@@ -51,3 +51,15 @@
   graph: ms_scatterchart
   layout: Dos objetos
   data-source: google analytics
+
+- slide: new
+  title: events cursos relacionados by day
+  dimensions: ga:date
+  metrics: ga:totalEvents
+  filtersExpression: ""
+  date-range: 7daysAgo, yesterday
+  sort: "" # ASCENDING, DESCENDING or ""
+  absolute-change: FALSE
+  graph: ms_linechart
+  layout: Dos objetos
+  data-source: google analytics

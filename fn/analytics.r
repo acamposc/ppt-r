@@ -75,7 +75,6 @@ Analytics <- R6Class(
                     length(fn_dateranges()) < 3
                 ) {
                     delta <- fn_delta_null()
-                    print("------- dateranges < 3 ------")
 
                 } else if(
                     #set up order_type object aka absolute change
@@ -84,12 +83,9 @@ Analytics <- R6Class(
                     is.element("ASCENDING", yaml_sort$field[[x]]) | is.element("DESCENDING", yaml_sort$field[[x]]) == TRUE
                     ) {
                         delta <- fn_ordertype()
-                        #print(delta)
-                        #print(is.element("ASCENDING", yaml_sort$field[[x]]) | is.element("DESCENDING", yaml_sort$field[[x]]))
                         print("------- absolute change incoming ------")
                     } 
                     else {
-                        print("no absolute change ordering")
                         delta <- fn_delta_null()
                     }
                 #google_analytics api query
